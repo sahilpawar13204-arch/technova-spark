@@ -1,12 +1,13 @@
 import AnimatedSection from "./AnimatedSection";
 import { GraduationCap, Brain, Shield, Globe, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const tracks = [
-  { icon: GraduationCap, title: "EdTech", desc: "Revolutionize learning experiences with technology", color: "primary" },
-  { icon: Brain, title: "AI / ML", desc: "Build intelligent systems that learn and adapt", color: "secondary" },
-  { icon: Shield, title: "CyberTech", desc: "Secure the digital world with innovative solutions", color: "neon-green" },
-  { icon: Globe, title: "Web / App Dev", desc: "Create impactful digital products and platforms", color: "neon-purple" },
-  { icon: Sparkles, title: "Open Innovation", desc: "Any real-world problem — your creativity, your rules", color: "accent" },
+  { icon: GraduationCap, title: "EdTech", desc: "Tools for enhanced learning experiences, accessibility, skill development, and educational innovation", color: "primary" },
+  { icon: Brain, title: "AI / ML", desc: "Intelligent systems, machine learning models, natural language processing, and predictive analytics", color: "secondary" },
+  { icon: Shield, title: "CyberTech", desc: "Cybersecurity solutions, privacy tools, threat detection, and digital safety innovations", color: "neon-green" },
+  { icon: Globe, title: "Web / App Development", desc: "Full-stack applications, progressive web apps, mobile solutions, and developer tools", color: "neon-purple" },
+  { icon: Sparkles, title: "Open Innovation", desc: "Any technology, any domain — if it solves a real-world problem with originality, it belongs here", color: "accent" },
 ];
 
 const colorMap: Record<string, { border: string; text: string; bg: string }> = {
@@ -25,11 +26,11 @@ const TracksSection = () => (
           Technology <span className="text-primary text-glow-cyan">Tracks</span>
         </h2>
         <p className="text-muted-foreground text-center mb-16 max-w-xl mx-auto">
-          Choose your track and solve real-world problems. No predefined statements — pure innovation.
+          Choose your track and build an original solution — no predefined problem statements
         </p>
       </AnimatedSection>
 
-      <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5 max-w-5xl mx-auto mb-10">
         {tracks.map((track, i) => {
           const c = colorMap[track.color];
           return (
@@ -38,13 +39,24 @@ const TracksSection = () => (
                 <div className={`w-14 h-14 rounded-xl ${c.bg} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
                   <track.icon size={24} className={c.text} />
                 </div>
-                <h3 className="font-space font-bold text-base text-foreground mb-2">{track.title}</h3>
+                <h3 className="font-space font-bold text-sm text-foreground mb-2">{track.title}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">{track.desc}</p>
               </div>
             </AnimatedSection>
           );
         })}
       </div>
+
+      <AnimatedSection delay={0.4}>
+        <p className="text-center text-sm text-muted-foreground">
+          Teams identify their own real-world problems and build original solutions
+        </p>
+        <div className="text-center mt-4">
+          <Link to="/tracks" className="text-sm text-primary hover:underline">
+            View detailed track information →
+          </Link>
+        </div>
+      </AnimatedSection>
     </div>
   </section>
 );

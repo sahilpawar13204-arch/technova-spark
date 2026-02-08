@@ -1,19 +1,20 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Timeline", href: "#timeline" },
-  { label: "Tracks", href: "#tracks" },
-  { label: "Prizes", href: "#prizes" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Register", href: "/register" },
+  { label: "Tracks", href: "/tracks" },
+  { label: "Shortlisted", href: "/shortlisted" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -27,32 +28,36 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 h-[72px] flex items-center transition-all duration-300 ${
-        scrolled ? "bg-background/90 backdrop-blur-xl border-b border-border" : "bg-transparent"
+        scrolled ? "bg-background/90 backdrop-blur-xl border-b border-border" : "bg-background/70 backdrop-blur-md"
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="font-space text-xl font-bold text-primary text-glow-cyan">
-          HACKNOVA <span className="text-secondary">2026</span>
-        </a>
+        <Link to="/" className="font-space text-xl font-bold text-primary text-glow-cyan">
+          HACK<span className="text-accent">NOVA</span> <span className="text-foreground text-sm font-normal">2026</span>
+        </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-1">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.label}
-              href={item.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200"
+              to={item.href}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                location.pathname === item.href
+                  ? "text-primary bg-primary/10 border border-primary/20"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
           <a
             href="https://unstop.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:shadow-[0_0_20px_hsl(190_100%_50%/0.4)] transition-shadow duration-300"
+            className="ml-4 px-5 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:shadow-[0_0_20px_hsl(190_100%_50%/0.4)] transition-all duration-300"
           >
-            Register on Unstop
+            Register Now
           </a>
         </div>
 
@@ -69,24 +74,28 @@ const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}
           className="absolute top-[72px] left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border md:hidden"
         >
-          <div className="flex flex-col p-6 gap-4">
+          <div className="flex flex-col p-6 gap-2">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className={`px-4 py-2.5 rounded-lg transition-colors ${
+                  location.pathname === item.href
+                    ? "text-primary bg-primary/10"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <a
               href="https://unstop.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium text-center"
+              className="px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium text-center mt-2"
             >
-              Register on Unstop
+              Register Now
             </a>
           </div>
         </motion.div>

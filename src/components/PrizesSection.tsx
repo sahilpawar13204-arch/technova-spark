@@ -1,55 +1,68 @@
 import AnimatedSection from "./AnimatedSection";
-import { Trophy, Medal, Award } from "lucide-react";
-import { motion } from "framer-motion";
+import { Trophy, Medal, Award, GraduationCap, Brain, Shield, Globe, Sparkles } from "lucide-react";
+
+const trackPrizes = [
+  { icon: GraduationCap, title: "EdTech", amount: "₹10,000" },
+  { icon: Brain, title: "AI / ML", amount: "₹10,000" },
+  { icon: Shield, title: "CyberTech", amount: "₹10,000" },
+  { icon: Globe, title: "Web / App Dev", amount: "₹10,000" },
+  { icon: Sparkles, title: "Open Innovation", amount: "₹10,000" },
+];
 
 const PrizesSection = () => (
   <section id="prizes" className="py-24 relative">
     <div className="container mx-auto px-6">
       <AnimatedSection>
         <h2 className="font-space text-3xl md:text-4xl font-bold text-center mb-4">
-          Prize <span className="text-accent text-glow-gold">Pool</span>
+          Win Exciting <span className="text-accent text-glow-gold">Prizes</span>
         </h2>
-        <p className="text-muted-foreground text-center mb-16">Rewarding innovation across all tracks</p>
+        <p className="text-muted-foreground text-center mb-16 max-w-lg mx-auto">
+          Compete for a total prize pool of ₹60,000 across 5 technology tracks
+        </p>
       </AnimatedSection>
 
-      {/* Main prizes */}
-      <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
-        {/* Track Winners */}
-        <AnimatedSection delay={0.1}>
-          <div className="rounded-2xl bg-card border border-accent/30 p-8 text-center box-glow-gold relative overflow-hidden group hover:scale-105 transition-transform duration-300">
-            <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />
-            <Trophy className="w-10 h-10 text-accent mx-auto mb-4 relative z-10" />
-            <p className="text-xs text-accent/80 uppercase tracking-widest mb-2 relative z-10">Track Winners (×5)</p>
-            <p className="font-space text-3xl font-bold text-accent text-glow-gold relative z-10">₹10,000</p>
-            <p className="text-xs text-muted-foreground mt-2 relative z-10">Each track</p>
+      {/* Track Winners Header */}
+      <AnimatedSection delay={0.1}>
+        <h3 className="font-space text-xl font-bold text-center text-foreground mb-8">
+          Track Winners — <span className="text-accent">₹10,000</span> Each
+        </h3>
+      </AnimatedSection>
+
+      {/* Track prizes grid */}
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-4xl mx-auto mb-10">
+        {trackPrizes.map((track, i) => (
+          <AnimatedSection key={track.title} delay={i * 0.08}>
+            <div className="rounded-2xl bg-card border border-accent/20 p-5 text-center hover:border-accent/40 transition-all duration-300 group hover:scale-105">
+              <track.icon className="w-8 h-8 text-accent mx-auto mb-3 group-hover:scale-110 transition-transform" />
+              <p className="text-sm font-medium text-foreground mb-1">{track.title}</p>
+              <p className="font-space text-lg font-bold text-accent">{track.amount}</p>
+            </div>
+          </AnimatedSection>
+        ))}
+      </div>
+
+      {/* Additional prizes */}
+      <div className="grid md:grid-cols-2 gap-5 max-w-2xl mx-auto mb-10">
+        <AnimatedSection delay={0.5}>
+          <div className="rounded-2xl bg-card border border-border p-6 text-center hover:border-muted-foreground/30 transition-all duration-300">
+            <Medal className="w-8 h-8 text-muted-foreground mx-auto mb-3" />
+            <h4 className="font-space font-bold text-foreground mb-1">Runner-Up Recognition</h4>
+            <p className="text-sm text-muted-foreground">Trophy + Certificate per track</p>
           </div>
         </AnimatedSection>
-
-        {/* Runner Up */}
-        <AnimatedSection delay={0.2}>
-          <div className="rounded-2xl bg-card border border-border p-8 text-center hover:border-muted-foreground/30 transition-all duration-300 group hover:scale-105">
-            <Medal className="w-10 h-10 text-muted-foreground mx-auto mb-4" />
-            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-2">Runner-Up</p>
-            <p className="font-space text-2xl font-bold text-foreground">Trophy</p>
-            <p className="text-xs text-muted-foreground mt-2">+ Certificate</p>
-          </div>
-        </AnimatedSection>
-
-        {/* Jury Prize */}
-        <AnimatedSection delay={0.3}>
-          <div className="rounded-2xl bg-card border border-secondary/30 p-8 text-center hover:scale-105 transition-transform duration-300 box-glow-magenta">
-            <Award className="w-10 h-10 text-secondary mx-auto mb-4" />
-            <p className="text-xs text-secondary/80 uppercase tracking-widest mb-2">Jury Prizes (×2)</p>
-            <p className="font-space text-3xl font-bold text-secondary text-glow-magenta">₹5,000</p>
-            <p className="text-xs text-muted-foreground mt-2">Cross-track</p>
+        <AnimatedSection delay={0.6}>
+          <div className="rounded-2xl bg-card border border-secondary/30 p-6 text-center hover:scale-105 transition-transform duration-300 box-glow-magenta">
+            <Award className="w-8 h-8 text-secondary mx-auto mb-3" />
+            <h4 className="font-space font-bold text-foreground mb-1">Jury Special Prizes</h4>
+            <p className="text-sm text-muted-foreground">₹5,000 × 2 (cross-track, discretionary)</p>
           </div>
         </AnimatedSection>
       </div>
 
-      <AnimatedSection delay={0.4}>
-        <p className="text-center text-sm text-muted-foreground">
-          All participants receive certificates of participation
-        </p>
+      <AnimatedSection delay={0.7}>
+        <div className="text-center rounded-2xl bg-accent/5 border border-accent/20 py-4 px-6 max-w-sm mx-auto">
+          <p className="text-sm font-medium text-accent">Total Prize Pool: <span className="font-space font-bold text-lg">₹60,000</span></p>
+        </div>
       </AnimatedSection>
     </div>
   </section>

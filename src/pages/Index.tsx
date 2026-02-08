@@ -1,10 +1,12 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import TimelineSection from "@/components/TimelineSection";
 import TracksSection from "@/components/TracksSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
 import PrizesSection from "@/components/PrizesSection";
-import FAQSection from "@/components/FAQSection";
+import TimelineSection from "@/components/TimelineSection";
+import EligibilitySection from "@/components/EligibilitySection";
+import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import InteractiveBackground from "@/components/InteractiveBackground";
 
@@ -16,10 +18,12 @@ const Index = () => {
       <main className="relative z-10">
         <HeroSection />
         <AboutSection />
-        <TimelineSection />
         <TracksSection />
+        <HowItWorksSection />
         <PrizesSection />
-        <FAQSection />
+        <TimelineSection />
+        <EligibilitySection />
+        <CTASection />
       </main>
       <Footer />
     </div>

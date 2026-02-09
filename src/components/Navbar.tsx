@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const navItems = [
@@ -28,12 +28,16 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 h-[72px] flex items-center transition-all duration-300 ${
-        scrolled ? "bg-background/90 backdrop-blur-xl border-b border-border" : "bg-background/70 backdrop-blur-md"
+        scrolled ? "bg-background/90 backdrop-blur-xl border-b border-border" : "bg-background/50 backdrop-blur-md"
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link to="/" className="font-space text-xl font-bold text-primary text-glow-cyan">
-          HACK<span className="text-accent">NOVA</span> <span className="text-foreground text-sm font-normal">2026</span>
+        <Link to="/" className="flex items-center gap-2">
+          <Sparkles size={18} className="text-secondary" />
+          <span className="font-space text-xl font-bold">
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>HACK</span>
+            <span className="text-accent">NOVA</span>
+          </span>
         </Link>
 
         {/* Desktop */}
@@ -44,7 +48,7 @@ const Navbar = () => {
               to={item.href}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                 location.pathname === item.href
-                  ? "text-primary bg-primary/10 border border-primary/20"
+                  ? "text-secondary bg-secondary/10 border border-secondary/20"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
@@ -55,7 +59,7 @@ const Navbar = () => {
             href="https://unstop.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-4 px-5 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:shadow-[0_0_20px_hsl(190_100%_50%/0.4)] transition-all duration-300"
+            className="ml-4 px-5 py-2 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground font-medium text-sm hover:shadow-[0_0_20px_hsl(270_80%_55%/0.4)] transition-all duration-300"
           >
             Register Now
           </a>
@@ -82,7 +86,7 @@ const Navbar = () => {
                 onClick={() => setMenuOpen(false)}
                 className={`px-4 py-2.5 rounded-lg transition-colors ${
                   location.pathname === item.href
-                    ? "text-primary bg-primary/10"
+                    ? "text-secondary bg-secondary/10"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -93,7 +97,7 @@ const Navbar = () => {
               href="https://unstop.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium text-center mt-2"
+              className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground font-medium text-center mt-2"
             >
               Register Now
             </a>

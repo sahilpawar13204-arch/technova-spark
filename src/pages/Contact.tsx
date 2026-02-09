@@ -40,7 +40,7 @@ const ContactPage = () => {
           <div className="container mx-auto px-6">
             <AnimatedSection>
               <h1 className="font-space text-4xl md:text-5xl font-bold text-center mb-4">
-                Get in <span className="text-primary text-glow-cyan">Touch</span>
+                Get in <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>Touch</span>
               </h1>
               <p className="text-muted-foreground text-center mb-16">Have questions? We're here to help.</p>
             </AnimatedSection>
@@ -129,7 +129,7 @@ const ContactPage = () => {
                     </div>
                     <button
                       type="submit"
-                      className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:shadow-[0_0_20px_hsl(190_100%_50%/0.4)] transition-all duration-300 flex items-center justify-center gap-2"
+                      className="w-full py-3 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold text-sm hover:shadow-[0_0_20px_hsl(270_80%_55%/0.4)] transition-all duration-300 flex items-center justify-center gap-2"
                     >
                       Send Message <Send size={14} />
                     </button>
@@ -170,7 +170,7 @@ const ContactPage = () => {
             <AnimatedSection delay={0.4}>
               <div id="faq" className="max-w-2xl mx-auto">
                 <h2 className="font-space text-3xl md:text-4xl font-bold text-center mb-4">
-                  Frequently Asked <span className="text-primary text-glow-cyan">Questions</span>
+                  Frequently Asked <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>Questions</span>
                 </h2>
                 <p className="text-muted-foreground text-center mb-10">Everything you need to know</p>
                 <Accordion type="single" collapsible className="space-y-3">

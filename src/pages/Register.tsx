@@ -14,7 +14,7 @@ const RegisterPage = () => (
         <div className="container mx-auto px-6">
           <AnimatedSection>
             <h1 className="font-space text-4xl md:text-5xl font-bold text-center mb-4">
-              Team <span className="text-primary text-glow-cyan">Registration</span>
+              Team <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>Registration</span>
             </h1>
             <p className="text-muted-foreground text-center mb-16 max-w-lg mx-auto">
               Register your team for HACKNOVA Hackathon 2026 on Unstop
@@ -24,8 +24,8 @@ const RegisterPage = () => (
           {/* Registration card */}
           <AnimatedSection delay={0.2}>
             <div className="max-w-lg mx-auto rounded-2xl bg-card border border-border p-10 text-center mb-12">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                <Users className="w-8 h-8 text-primary" />
+              <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mx-auto mb-6">
+                <Users className="w-8 h-8 text-secondary" />
               </div>
               <h2 className="font-space text-2xl font-bold text-foreground mb-3">Register on Unstop</h2>
               <p className="text-muted-foreground text-sm leading-relaxed mb-8">
@@ -35,7 +35,7 @@ const RegisterPage = () => (
                 href="https://unstop.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-accent text-accent-foreground font-semibold hover:shadow-[0_0_30px_hsl(45_100%_55%/0.4)] transition-all duration-300 hover:scale-105"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold hover:shadow-[0_0_30px_hsl(270_80%_55%/0.4)] transition-all duration-300 hover:scale-105"
               >
                 Register on Unstop <ExternalLink size={18} />
               </a>
@@ -50,7 +50,7 @@ const RegisterPage = () => (
             {[
               { icon: Users, title: "Team Size", value: "2–4 Members" },
               { icon: CalendarDays, title: "Deadline", value: "Feb 21, 2026" },
-              { icon: Trophy, title: "Prize Pool", value: "₹60,000" },
+              { icon: Trophy, title: "Prize Pool", value: "₹50K+" },
             ].map((item, i) => (
               <AnimatedSection key={item.title} delay={0.3 + i * 0.1}>
                 <div className="rounded-2xl bg-card border border-border p-6 text-center">
